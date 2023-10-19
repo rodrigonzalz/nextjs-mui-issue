@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## The issue
+This is NextJS application with Pages router that uses MUI CSSVarsProvider fot theming.
+
+At `_app.tsx` there is a `Wrapper` component that uses the hook `useColorScheme`.
+
+As `Wrapper` is under `CssVarsProvider` it should work without any issue.
+
+When using NextJS `13.5.6` we get error the error`MUI: useColorScheme must be called under CssVarsProvider` with the static generated pages (index, 404 and 500)
+
+This does not happen with NextJS `13.4.19` and below.
+
+## To replicate
+
+Run `next dev` or `next build` with NextJS `13.5.6` to trigger the error.
+
+Change version to `13.4.19` and you will not get any error.
+
 ## Getting Started
 
 First, run the development server:
